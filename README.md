@@ -6,5 +6,5 @@ Project using Sockets🧦 and Thread.
 # INSTALL
 
 ```bash
-git clone ...
+git clone https://github.com/YoubaImkf/chatHub.git
 ```
