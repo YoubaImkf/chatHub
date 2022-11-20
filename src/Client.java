@@ -2,7 +2,7 @@ import java.io.*;
 import java.net.Socket;
 import java.util.Scanner;
 
-public class Client {
+public class Client { //MAIN AT THE END
 
     private Socket socket; // communication point through which a thread can transmit or receive information
     private BufferedWriter bufferedWriter; // Object send data to clients
@@ -37,7 +37,6 @@ public class Client {
                 bufferedWriter.write(username + ": " + msgToSend);
                 bufferedWriter.newLine();
                 bufferedWriter.flush();
-
             }
         }catch(IOException e){
             closeEverything(socket, bufferedReader, bufferedWriter);

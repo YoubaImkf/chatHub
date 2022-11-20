@@ -2,7 +2,7 @@ import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-public class Server {
+public class Server { //MAIN AT THE END
 
     private final ServerSocket serverSocket; // waits for requests to come in over the network
 
@@ -12,6 +12,13 @@ public class Server {
 
     private void startServer(){
         try{
+            System.out.println("" +
+                    " _____ _           _   _   _       _     \n" +
+                    "/  __ \\ |         | | | | | |     | |    \n" +
+                    "| /  \\/ |__   __ _| |_| |_| |_   _| |__  \n" +
+                    "| |   | '_ \\ / _` | __|  _  | | | | '_ \\ \n" +
+                    "| \\__/  | | | (_| | |_| | | | |_| | |_) |\n" +
+                    " \\____/_| |_|\\__,_|\\__\\_| |_/\\__,_|_.__/ \n");
             System.out.println("Connecting...");
             while(!serverSocket.isClosed()){ // while server running execute
 
@@ -44,7 +51,6 @@ public class Server {
         ServerSocket serverSocket = new ServerSocket(2000);
         Server server = new Server(serverSocket);
         server.startServer();
-
     }
 
 }
