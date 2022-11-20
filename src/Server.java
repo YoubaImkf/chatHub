@@ -4,21 +4,22 @@ import java.net.Socket;
 
 public class Server {
 
-    private final ServerSocket serverSocket;
+    private final ServerSocket serverSocket; // waits for requests to come in over the network
 
     public Server(ServerSocket serverSocket) {
         this.serverSocket = serverSocket;
     }
 
-    public void startServer(){
+    private void startServer(){
         try{
+            System.out.println("Connecting...");
             while(!serverSocket.isClosed()){ // while server running execute
-                System.out.println("Connecting...");
-                Socket socket = serverSocket.accept();
-                System.out.println("A new client has just connected");
-                ClientHandler clientHandler = new ClientHandler(socket); // store all clients
 
-                Thread thread = new Thread(clientHandler);
+                Socket socket = serverSocket.accept(); // Listen for a client connection
+                System.out.println("A new client has just connected");
+                ClientHandler clientHandler = new ClientHandler(socket); //  clients store implements RUNNABLE
+
+                Thread thread = new Thread(clientHandler); // Object thread
                 thread.start();
 
             }
@@ -27,7 +28,7 @@ public class Server {
         }
     }
 
-    public void closeServer(){ // methode that handle error
+    private void closeServer(){ // methode that handle error
         try{
             if(serverSocket != null){
                 serverSocket.close();
