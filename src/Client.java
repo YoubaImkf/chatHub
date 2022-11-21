@@ -30,7 +30,7 @@ public class Client { //MAIN AT THE END
             while(socket.isConnected()){ // while client connected
 
                 String msgToSend = scanner.nextLine();
-                if(msgToSend.equals("QUIT")) {
+                if(msgToSend.equals("/QUIT")) {
                     System.out.println("exit chat...");
                     System.exit(0);
                 }
@@ -86,7 +86,7 @@ public class Client { //MAIN AT THE END
     //Allow multiple instance
     public static void main(String[] args) throws IOException {
 
-        System.out.println("-Enter: 'QUIT' to left the chat-");
+        System.out.println("-Enter: '/QUIT' to left the chat-");
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter your username to join the chat: ");
         String username = scanner.nextLine();
